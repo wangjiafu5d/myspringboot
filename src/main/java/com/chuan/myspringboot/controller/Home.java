@@ -3,6 +3,7 @@ package com.chuan.myspringboot.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -21,7 +22,9 @@ public class Home {
 	    }
 	 @RequestMapping("/getrecord")
 	 @ResponseBody
+	 @Cacheable("userCache")
 	    public List<ManageRcord> getecord() {
+		 System.out.println("未读取缓存");
 	        return recordService.get();
 	    }
 	

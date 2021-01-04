@@ -3,6 +3,8 @@ package com.chuan.myspringboot.controller;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -23,10 +25,12 @@ public class StudentController {
 	private RedisTemplate redisTemplate;
 	@PostMapping("/set")
 	public void set(@RequestBody Student student) {
+		System.out.println(student.getScore());
 		redisTemplate.opsForValue().set("student", student);
 		}
 	@RequestMapping(("/get/{key}"))
 	@ResponseBody
+	@Cacheable("userCache")
 	public Student get(@PathVariable("key") String key) {
 		Student  s = (Student) redisTemplate.opsForValue().get("student");
 		System.out.println(s==null);
@@ -36,6 +40,7 @@ public class StudentController {
 		return (Student) redisTemplate.opsForValue().get("student");
 	}
 	@DeleteMapping("/delete/{key}")
+	@CacheEvict("userCache")
 	public boolean delete(@PathVariable("key") String key) {
 		redisTemplate.delete(key);
 		return !redisTemplate.hasKey(key);

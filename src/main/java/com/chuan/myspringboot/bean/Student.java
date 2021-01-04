@@ -4,6 +4,10 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Student implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Integer id;
 	private String name;
 	private Double score;
@@ -44,6 +48,10 @@ public class Student implements Serializable {
 	}
 	public void setBirthday(Date birthday) {
 		this.birthday = birthday;
+	}
+	public Student() {
+		super();
+		
 	}
 	
 	

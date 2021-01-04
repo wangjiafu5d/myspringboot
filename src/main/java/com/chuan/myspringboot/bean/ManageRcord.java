@@ -1,8 +1,10 @@
 package com.chuan.myspringboot.bean;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class ManageRcord {
+
+public class ManageRcord implements Serializable{
     private Integer id;
 
     private Date date;
