@@ -42,9 +42,28 @@ function login() {
 			}
 		}
 		});
+	$.ajax({
+		url:"${APP_PATH}/set",
+		type:"POST",		
+		 contentType: "application/json", //必须有
+		data:JSON.stringify({"id":1,"name":"李华","birthday":"2020-07-09","score":99.4}),
+		success:function(response){
+			console.log(response);
+			
+		}
+		});
 }
 function reset() {
-	$('#form1')[0].reset();
+	//$('#form1')[0].reset();
+	$.ajax({
+		url:"${APP_PATH}/set",
+		type:"POST",		
+		data:"id=1&name=李华&birthday=2020-070-09&scor=99.4",
+		success:function(response){
+			console.log(response);
+			
+		}
+		});
 } 
     </script>
 <style>

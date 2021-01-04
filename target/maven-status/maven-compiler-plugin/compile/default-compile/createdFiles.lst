@@ -1,6 +1,8 @@
 com\chuan\myspringboot\MBGTest.class
 com\chuan\myspringboot\service\RecordService.class
 com\chuan\myspringboot\controller\Home.class
+com\chuan\myspringboot\controller\StudentController.class
+com\chuan\myspringboot\redis\RedisConfig.class
 com\chuan\myspringboot\bean\ManageRcordExample$GeneratedCriteria.class
 com\chuan\myspringboot\bean\ManageRcordExample.class
 com\chuan\myspringboot\bean\ManageRcordExample$Criteria.class
@@ -8,3 +10,4 @@ com\chuan\myspringboot\MyspringbootApplication.class
 com\chuan\myspringboot\bean\ManageRcord.class
 com\chuan\myspringboot\bean\ManageRcordExample$Criterion.class
 com\chuan\myspringboot\dao\ManageRcordMapper.class
+com\chuan\myspringboot\bean\Student.class
